@@ -1,0 +1,6 @@
+{
+  "name": "Digeetech",
+  "description": "Creating What's Next... Digital Technology & Growth Solutions",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
