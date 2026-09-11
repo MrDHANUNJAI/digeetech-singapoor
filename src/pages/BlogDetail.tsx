@@ -2,6 +2,9 @@ import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { blogArticles } from "../data";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
+import aiAgentsImg from "../assets/images/ai_agents_tech.jpg";
+import cloudArchImg from "../assets/images/cloud_architecture_1789130783930.jpg";
+import techStackImg from "../assets/images/tech_stack.jpg";
 
 export const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -52,18 +55,50 @@ export const BlogDetail: React.FC = () => {
           </div>
         </div>
 
+        {/* ARTICLE HEADER HERO IMAGE */}
+        <div className="mb-10 rounded-2xl overflow-hidden shadow-lg border border-brand-navy/10 h-72">
+          <img
+            src={article.category.toLowerCase() === "ai" ? aiAgentsImg : article.category.toLowerCase() === "saas" ? cloudArchImg : techStackImg}
+            alt={article.title}
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
         {/* ARTICLE PARAGRAPHS */}
         <article id="blog-body" className="flex flex-col gap-6 font-sans text-sm md:text-base text-brand-navy/90 leading-relaxed">
           {article.content.map((paragraph, index) => (
-            <p key={index} className="indent-0">
-              {paragraph}
-            </p>
+            <React.Fragment key={index}>
+              <p className="indent-0">
+                {paragraph}
+              </p>
+              {index === 1 && (
+                <div className="my-6 rounded-2xl overflow-hidden border border-brand-navy/10 shadow-md h-60">
+                  <img
+                    src={cloudArchImg}
+                    alt="Cloud Architecture & Infrastructure"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              {index === 3 && (
+                <div className="my-6 rounded-2xl overflow-hidden border border-brand-navy/10 shadow-md h-60">
+                  <img
+                    src={aiAgentsImg}
+                    alt="Autonomous AI Agents Framework"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </article>
 
         {/* ARTICLE DISCLAIMER */}
         <div id="blog-disclaimer" className="mt-16 p-6 rounded-xl bg-brand-white/40 border border-brand-navy/5 font-sans text-xs text-brand-gray italic shadow-sm">
-          * This article is published for educational and analytical purposes by the Digeetech Editorial and Engineering Teams. All views expressed are centered on standard industry practices and factual technology structures.
+          * This article is published for educational and analytical purposes by the Digee Tech Editorial and Engineering Teams. All views expressed are centered on standard industry practices and factual technology structures.
         </div>
 
       </div>

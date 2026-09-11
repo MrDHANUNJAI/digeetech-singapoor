@@ -1,52 +1,68 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logoImg from "../assets/logo.png";
 
 interface LogoProps {
+  id?: string;
   className?: string;
   iconOnly?: boolean;
+  variant?: "default" | "light" | "dark" | "white";
+  size?: "sm" | "md" | "lg" | "xl";
+  showTagline?: boolean;
+  stacked?: boolean;
 }
 
-export const Logo: React.FC<LogoProps> = ({ className = "", iconOnly = false }) => {
+export const Logo: React.FC<LogoProps> = ({
+  id = "logo-link",
+  className = "",
+  iconOnly = false,
+  variant = "default",
+  size = "md",
+  showTagline = true,
+  stacked = false
+}) => {
+  // Color configuration based on variant
+  const isLightText = variant === "light" || variant === "white" || variant === "dark";
+
+  // Size mapping for the logo image
+  const logoHeights = {
+    sm: "h-8",
+    md: "h-10 sm:h-11",
+    lg: "h-14 sm:h-16",
+    xl: "h-20 sm:h-24"
+  };
+
   return (
-    <Link id="logo-link" to="/" className={`flex items-center gap-3 group transition-opacity ${className}`}>
-      {/* Abstract technical double-arrow forward connectivity mesh */}
-      <svg
-        id="digeetech-svg-logo"
-        className="w-8 h-8 transition-transform duration-500 group-hover:rotate-6"
-        viewBox="0 0 32 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M6 8L16 14L26 8L16 22L6 8Z"
-          fill="url(#logo-grad-1)"
-          opacity="0.8"
+    <Link
+      id={id}
+      to="/"
+      className={`inline-flex items-center gap-2.5 group transition-all duration-300 ${
+        stacked ? "flex-col text-center" : ""
+      } ${className}`}
+    >
+      <div className="relative shrink-0 flex items-center justify-center">
+        <img
+          src={logoImg}
+          alt="Digee Tech Logo"
+          referrerPolicy="no-referrer"
+          className={`${logoHeights[size]} w-auto object-contain transition-transform duration-300 group-hover:scale-105 rounded-lg`}
         />
-        <path
-          d="M6 14L16 20L26 14L16 28L6 14Z"
-          fill="url(#logo-grad-2)"
-        />
-        <circle cx="16" cy="14" r="2.5" fill="#ffffff" />
-        <circle cx="6" cy="8" r="1.5" fill="#008bce" />
-        <circle cx="26" cy="8" r="1.5" fill="#008bce" />
-        <circle cx="16" cy="22" r="2" fill="#008bce" />
-        <circle cx="16" cy="28" r="2" fill="#ffffff" />
-        <defs>
-          <linearGradient id="logo-grad-1" x1="6" y1="8" x2="26" y2="22" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#008bce" />
-            <stop offset="1" stopColor="#051830" />
-          </linearGradient>
-          <linearGradient id="logo-grad-2" x1="6" y1="14" x2="26" y2="28" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#008bce" />
-            <stop offset="1" stopColor="#00b4d8" />
-          </linearGradient>
-        </defs>
-      </svg>
-      
+      </div>
+
       {!iconOnly && (
-        <span id="digeetech-text-logo" className="font-display font-bold text-xl tracking-tight text-brand-navy">
-          Digee<span className="text-brand-blue">tech</span>
-        </span>
+        <div className={`flex flex-col ${stacked ? "items-center" : "items-start"}`}>
+          {/* Fallback styling or subtle brand tagline if requested */}
+          {showTagline && (
+            <span
+              className={`font-serif italic text-[10px] sm:text-xs font-semibold tracking-wide ${
+                isLightText ? "text-slate-300" : "text-brand-blue"
+              }`}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              Creating What's Next...
+            </span>
+          )}
+        </div>
       )}
     </Link>
   );

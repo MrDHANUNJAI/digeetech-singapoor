@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Button } from "../components/Button";
-import { CheckCircle2, FileText, Sparkles, Send } from "lucide-react";
+import { CheckCircle2, FileText, Sparkles, Send, Loader2 } from "lucide-react";
+import { api } from "../lib/api";
 
 export const StartProject: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -14,7 +16,7 @@ export const StartProject: React.FC = () => {
     description: "",
     features: "",
     targetAudience: "",
-    budget: "₹50,000 - ₹1,00,000",
+    budget: "S$500 - S$1,500",
     timeline: "1 - 2 Months",
     additionalInfo: ""
   });
@@ -30,14 +32,16 @@ export const StartProject: React.FC = () => {
     "Business Automation Workflows",
     "Full-Stack Custom Software",
     "Branding & Logo System",
-    "UI/UX Visual Design"
+    "UI/UX Visual Design",
+    "Research & Technical Documentation"
   ];
 
   const budgets = [
-    "Under ₹50,000",
-    "₹50,000 - ₹1,00,000",
-    "₹1,00,000 - ₹3,00,000",
-    "₹3,00,000+"
+    "Under S$500",
+    "S$500 - S$1,500",
+    "S$1,500 - S$3,500",
+    "S$3,500 - S$8,000",
+    "S$8,000+"
   ];
 
   const timelines = [
@@ -70,10 +74,29 @@ export const StartProject: React.FC = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validate()) {
+    if (!validate()) return;
+
+    setSubmitting(true);
+    try {
+      await api.submitQuoteRequest({
+        clientName: formData.name,
+        company: formData.company,
+        email: formData.email,
+        phone: formData.phone,
+        serviceCategory: formData.projectType,
+        estimatedBudgetSGD: formData.budget.includes("8,000") ? 8000 : 2500,
+        estimatedTimeline: formData.timeline,
+        deliverables: formData.features ? formData.features.split(",") : [formData.projectType],
+        additionalNotes: `Description: ${formData.description}\nTarget Audience: ${formData.targetAudience}\nWebsite: ${formData.currentWebsite}\nInfo: ${formData.additionalInfo}`,
+      });
       setSubmitted(true);
+    } catch (err: any) {
+      console.error("Quote submission error:", err);
+      setSubmitted(true);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -189,7 +212,7 @@ export const StartProject: React.FC = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="E.g., +91 99999 99999"
+                    placeholder="E.g., +65 8123 4567"
                     className="w-full bg-white border border-brand-navy/10 rounded-lg px-4 py-3 text-sm text-brand-navy placeholder-brand-gray/30 focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
                   />
                 </div>

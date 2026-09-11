@@ -3,6 +3,9 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { projectsData } from "../data";
 import { Button } from "../components/Button";
 import { ArrowLeft, CheckCircle, ShieldAlert, Cpu, Laptop, Workflow, BarChart } from "lucide-react";
+import projectsShowcaseImg from "../assets/images/projects_showcase.jpg";
+import aiDashboardImg from "../assets/images/ai_dashboard_1789130800720.jpg";
+import cloudArchImg from "../assets/images/cloud_architecture_1789130783930.jpg";
 
 export const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -32,7 +35,7 @@ export const ProjectDetail: React.FC = () => {
         </Link>
 
         {/* HERO TITLE */}
-        <div id="project-detail-hero" className="max-w-4xl mb-16">
+        <div id="project-detail-hero" className="max-w-4xl mb-12">
           <span className="text-[10px] font-bold tracking-widest text-brand-blue uppercase bg-brand-blue/10 rounded-full px-3 py-1 border border-brand-blue/15 block w-fit mb-4">
             Case Study: {project.category}
           </span>
@@ -42,6 +45,33 @@ export const ProjectDetail: React.FC = () => {
           <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4 max-w-3xl">
             {project.description}
           </p>
+
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="rounded-2xl overflow-hidden border border-brand-navy/10 shadow-md group h-44">
+              <img
+                src={project.slug.includes("ai") ? aiDashboardImg : projectsShowcaseImg}
+                alt="Main Project Interface"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-brand-navy/10 shadow-md group h-44">
+              <img
+                src={cloudArchImg}
+                alt="System Architecture & Backend Infrastructure"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-brand-navy/10 shadow-md group h-44">
+              <img
+                src={aiDashboardImg}
+                alt="Real-Time Analytics & Monitoring Dashboard"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
         </div>
 
         {/* PROJECT STRUCTURE BLOCKS */}

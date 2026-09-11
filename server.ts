@@ -1,0 +1,54 @@
+import express from "express";
+import path from "path";
+import { createServer as createViteServer } from "vite";
+import { apiRouter } from "./server/routes";
+
+async function startServer() {
+  const app = express();
+  const PORT = 3000;
+
+  // Body Parsing Middleware
+  app.use(express.json({ limit: "10mb" }));
+  app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+
+  // Request logger in dev
+  app.use((req, res, next) => {
+    if (req.url.startsWith("/api")) {
+      console.log(`[API] ${req.method} ${req.url}`);
+    }
+    next();
+  });
+
+  // Mount API routes
+  app.use("/api", apiRouter);
+
+  // Health check
+  app.get("/api/health", (req, res) => {
+    res.json({
+      status: "ok",
+      app: "DIGEE TECH Singapore",
+      timestamp: new Date().toISOString(),
+    });
+  });
+
+  // Vite middleware for development vs static serve for production
+  if (process.env.NODE_ENV !== "production") {
+    const vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: "spa",
+    });
+    app.use(vite.middlewares);
+  } else {
+    const distPath = path.join(process.cwd(), "dist");
+    app.use(express.static(distPath));
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(distPath, "index.html"));
+    });
+  }
+
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`[Digee Tech Server] Running on http://localhost:${PORT}`);
+  });
+}
+
+startServer();

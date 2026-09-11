@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Button } from "../components/Button";
 import { SectionHeader } from "../components/SectionHeader";
 import { Calendar, Clock, MapPin, CheckCircle2, Award, Zap } from "lucide-react";
+import internshipLearningImg from "../assets/images/internship_learning.jpg";
+import techStackImg from "../assets/images/tech_stack.jpg";
+import teamMeetingImg from "../assets/images/team_meeting_1789130815215.jpg";
 
 export const Workshops: React.FC = () => {
   const [registered, setRegistered] = useState(false);
@@ -43,16 +46,45 @@ export const Workshops: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* HERO */}
-        <div id="workshops-hero" className="max-w-3xl mb-16">
-          <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
-            Technical Education
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight mt-2">
-            Technical Workshops
-          </h1>
-          <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4">
-            We host specialized training blocks covering full-stack compilation, RAG databases, cognitive agents workflows, and optimized SEO pipelines for our business clients and development community.
-          </p>
+        <div id="workshops-hero" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+          <div className="lg:col-span-6">
+            <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
+              Technical Education
+            </span>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight mt-2">
+              Technical Workshops
+            </h1>
+            <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4">
+              We host specialized training blocks covering full-stack compilation, RAG databases, cognitive agents workflows, and optimized SEO pipelines for our business clients and development community.
+            </p>
+          </div>
+
+          <div className="lg:col-span-6 grid grid-cols-3 gap-3">
+            <div className="rounded-xl overflow-hidden border border-brand-navy/10 shadow-md group h-48">
+              <img
+                src={internshipLearningImg}
+                alt="Interactive Workshop"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden border border-brand-navy/10 shadow-md group h-48">
+              <img
+                src={techStackImg}
+                alt="Hands-on Code Training"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden border border-brand-navy/10 shadow-md group h-48">
+              <img
+                src={teamMeetingImg}
+                alt="Mentorship & Certification"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
         </div>
 
         {/* MAIN SPLIT GRID */}
@@ -179,7 +211,7 @@ export const Workshops: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="+91 99999 99999"
+                      placeholder="+65 8123 4567"
                       className="w-full bg-white border border-brand-navy/10 rounded-lg px-4 py-3 text-sm text-brand-navy placeholder-brand-gray/30 focus:border-brand-blue focus:outline-none"
                     />
                   </div>

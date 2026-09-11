@@ -11,6 +11,19 @@ import { motion } from "motion/react";
 import { TestimonialsSection } from "../components/TestimonialsSection";
 import { SmartServiceFinder } from "../components/SmartServiceFinder";
 import { ProjectEstimator } from "../components/ProjectEstimator";
+import { LiveStatsSection } from "../components/LiveStatsSection";
+
+// Page Assets
+import homeHeroImg from "../assets/images/home_hero.jpg";
+import servicesOverviewImg from "../assets/images/services_overview.jpg";
+import techStackImg from "../assets/images/tech_stack.jpg";
+import aiAgentsImg from "../assets/images/ai_agents_tech.jpg";
+import projectsShowcaseImg from "../assets/images/projects_showcase.jpg";
+
+// 3D Interactive & Scroll Animation Components
+import { Card3D } from "../components/3d/Card3D";
+import { ScrollReveal3D } from "../components/3d/ScrollReveal3D";
+import { Floating3DBackground } from "../components/3d/Floating3DBackground";
 
 export const Home: React.FC = () => {
   const [activeWorkflowStep, setActiveWorkflowStep] = useState(1);
@@ -92,7 +105,7 @@ export const Home: React.FC = () => {
     { title: "Cloud Deployment", techs: ["Google Cloud", "Docker Containers", "Cloud Run", "CI/CD Actions"] }
   ];
 
-  const whyDigeetech = [
+  const whyDigeeTech = [
     { title: "Elite Engineering Standards", desc: "We do not use bloated templates. Every system is custom-written in modern, secure TypeScript for long-term maintainability.", icon: <FileCode className="text-brand-blue" /> },
     { title: "Transparent Blueprinting", desc: "No opaque promises. You receive precise visual templates in Figma and clear technical mapping before a single line of code is produced.", icon: <Settings className="text-brand-blue" /> },
     { title: "AI-First Architectures", desc: "We design with modern cognitive workflows in mind, creating database schemas and API endpoints ready for seamless AI interactions.", icon: <Cpu className="text-brand-blue" /> },
@@ -102,26 +115,29 @@ export const Home: React.FC = () => {
   return (
     <div id="home-page" className="w-full relative overflow-x-hidden pt-20 bg-white text-brand-navy">
       
+      {/* 3D Ambient Particles Canvas Background */}
+      <Floating3DBackground />
+
       {/* Premium Hero Background Grid */}
       <div id="hero-backdrop" className="absolute top-0 left-0 w-full h-[950px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-blue/10 via-white to-transparent -z-10" />
       
       {/* 1. HERO SECTION */}
-      <section id="hero-section" className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 lg:pt-32 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div id="hero-left" className="lg:col-span-7 flex flex-col items-start gap-6">
-          <div className="inline-flex items-center gap-2 bg-brand-blue/10 border border-brand-blue/20 rounded-full px-4 py-1.5 text-xs text-brand-blue font-display font-bold tracking-wide">
+      <section id="hero-section" className="max-w-4xl mx-auto px-6 pt-16 md:pt-24 lg:pt-32 pb-24 flex flex-col items-center text-center relative z-10">
+        <ScrollReveal3D direction="up" className="flex flex-col items-center gap-6">
+          <div className="inline-flex items-center gap-2 bg-brand-blue/10 border border-brand-blue/20 rounded-full px-4 py-1.5 text-xs text-brand-blue font-display font-bold tracking-wide shadow-sm">
             <span className="w-1.5 h-1.5 bg-brand-blue rounded-full animate-ping" />
-            Bespoke Digital Technology & Growth Systems
+            Engineering Intelligent Digital Futures
           </div>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-brand-navy">
             Creating What's <span className="text-gradient-blue">Next...</span>
           </h1>
-          <p className="font-sans text-lg md:text-xl text-brand-gray leading-relaxed max-w-xl">
+          <p className="font-sans text-lg md:text-xl text-brand-gray leading-relaxed max-w-2xl mx-auto">
             We build high-performance custom software, secure internal business tools, intelligent AI agents, and technical acquisition funnels to propel enterprises forward.
           </p>
-          <div className="font-display text-xs text-brand-blue font-bold tracking-wider uppercase border-t border-brand-navy/10 pt-4 w-full max-w-lg">
+          <div className="font-display text-xs text-brand-blue font-bold tracking-wider uppercase border-t border-brand-navy/10 pt-4 w-full max-w-xl mx-auto">
             Websites • Apps • AI Agents • SaaS • CRM • ERP • Automations • SEO
           </div>
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-wrap justify-center gap-4 pt-4">
             <Button id="hero-cta-start" variant="primary" size="lg" to="/start-a-project">
               Start a Project
             </Button>
@@ -129,78 +145,62 @@ export const Home: React.FC = () => {
               Explore Our Services
             </Button>
           </div>
-        </div>
 
-        {/* Hero Interactive Abstract Ecosystem Map */}
-        <div id="hero-right" className="lg:col-span-5 relative flex items-center justify-center min-h-[350px]">
-          <div className="absolute w-[320px] h-[320px] bg-brand-blue/5 rounded-full blur-3xl" />
-          
-          <div className="relative w-full max-w-[400px] border border-brand-navy/5 rounded-3xl p-8 bg-white/95 backdrop-blur-md shadow-2xl flex flex-col gap-6">
-            <div className="flex items-center justify-between border-b border-brand-navy/5 pb-4">
-              <span className="font-display text-[10px] font-extrabold text-brand-blue tracking-widest uppercase">Ecosystem Core</span>
-              <span className="font-sans text-[10px] text-brand-gray">Digeetech Cloud Core</span>
-            </div>
-
-            {/* Simulated Animated Interlocking Node Nodes */}
-            <div className="grid grid-cols-2 gap-4 relative">
-              <div className="p-3.5 rounded-2xl border border-brand-navy/5 bg-brand-white/40 flex items-center gap-2">
-                <Laptop className="w-4 h-4 text-brand-blue" />
-                <span className="font-display text-xs text-brand-navy font-bold">Web / SaaS</span>
-              </div>
-              <div className="p-3.5 rounded-2xl border border-brand-navy/5 bg-brand-white/40 flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-brand-blue" />
-                <span className="font-display text-xs text-brand-navy font-bold">AI Agent</span>
-              </div>
-              <div className="p-3.5 rounded-2xl border border-brand-navy/5 bg-brand-white/40 flex items-center gap-2">
-                <Database className="w-4 h-4 text-brand-blue" />
-                <span className="font-display text-xs text-brand-navy font-bold">Database</span>
-              </div>
-              <div className="p-3.5 rounded-2xl border border-brand-navy/5 bg-brand-white/40 flex items-center gap-2">
-                <Settings className="w-4 h-4 text-brand-blue" />
-                <span className="font-display text-xs text-brand-navy font-bold">Workflows</span>
-              </div>
-
-              {/* Connections */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <Network className="w-12 h-12 text-[#008bce]/20 animate-pulse" />
-              </div>
-            </div>
-
-            <div className="border-t border-brand-navy/5 pt-4 text-center">
-              <span className="font-sans text-xs text-brand-gray block">Enterprise Integration Layer</span>
-              <span className="font-display text-xs font-extrabold text-brand-blue block mt-1">Scale • Automate • Grow</span>
+          {/* Hero Feature Showcase Image */}
+          <div className="w-full max-w-4xl mt-8 rounded-2xl overflow-hidden border border-brand-navy/10 shadow-2xl relative group">
+            <img
+              src={homeHeroImg}
+              alt="Digee Tech Enterprise Software Ecosystem"
+              referrerPolicy="no-referrer"
+              className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-102"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 via-transparent to-transparent opacity-80" />
+            <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-white text-xs font-display">
+              <span className="bg-brand-blue/80 backdrop-blur-md px-3 py-1 rounded-full font-bold">
+                Enterprise Cloud Architecture
+              </span>
+              <span className="hidden sm:inline font-mono opacity-90">
+                Type-Safe • Autonomous • Scalable
+              </span>
             </div>
           </div>
-        </div>
+        </ScrollReveal3D>
       </section>
+
+      {/* LIVE ANIMATED STATS & IMPACT SHOWCASE */}
+      <LiveStatsSection />
 
       {/* 2. TRUST & VALUE CAPABILITIES */}
       <section id="trust-capabilities" className="bg-brand-white/40 py-24 border-y border-brand-navy/5">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader
-            id="capabilities-header"
-            eyebrow="Capabilities Blueprint"
-            title="One Technology Partner. Complete Systems Execution."
-            description="We eliminate the friction of coordinating multiple agencies by delivering seamless integration across all business technology nodes."
-            center
-          />
+          <ScrollReveal3D direction="up">
+            <SectionHeader
+              id="capabilities-header"
+              eyebrow="Capabilities Blueprint"
+              title="One Technology Partner. Complete Systems Execution."
+              description="We eliminate the friction of coordinating multiple agencies by delivering seamless integration across all business technology nodes."
+              center
+            />
+          </ScrollReveal3D>
           <div id="capabilities-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {capabilities.map((cap, idx) => (
-              <div
-                id={`cap-card-${idx}`}
-                key={cap.title}
-                className="p-8 rounded-3xl border border-brand-navy/5 bg-white hover:border-brand-blue/30 transition-all duration-300 group hover:-translate-y-1 shadow-md hover:shadow-xl shadow-brand-navy/5"
-              >
-                <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-6 group-hover:bg-brand-blue group-hover:text-white transition-all duration-300 text-brand-blue">
-                  {cap.icon}
-                </div>
-                <h3 className="font-display text-lg font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
-                  {cap.title}
-                </h3>
-                <p className="font-sans text-sm text-brand-gray leading-relaxed">
-                  {cap.desc}
-                </p>
-              </div>
+              <ScrollReveal3D key={cap.title} direction="up" delay={0.1 * idx}>
+                <Card3D id={`cap-card-${idx}`} className="h-full">
+                  <div className="p-8 rounded-3xl border border-brand-navy/5 bg-white flex flex-col h-full justify-between">
+                    <div>
+                      <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center mb-6 text-brand-blue">
+                        {cap.icon}
+                      </div>
+                      <h3 className="font-display text-lg font-bold text-brand-navy mb-3">
+                        {cap.title}
+                      </h3>
+                      <p className="font-sans text-sm text-brand-gray leading-relaxed">
+                        {cap.desc}
+                      </p>
+                    </div>
+                  </div>
+                </Card3D>
+              </ScrollReveal3D>
             ))}
           </div>
         </div>
@@ -209,45 +209,68 @@ export const Home: React.FC = () => {
       {/* 3. COMPREHENSIVE SERVICE CATEGORIES */}
       <section id="service-categories" className="py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader
-            id="categories-header-main"
-            eyebrow="Solutions Blueprint"
-            title="Everything You Need To Build Your Digital Future"
-            description="We map custom software architectures, workflow integrations, and continuous growth channels to target your primary organizational goals."
-          />
+          <ScrollReveal3D direction="up">
+            <SectionHeader
+              id="categories-header-main"
+              eyebrow="Solutions Blueprint"
+              title="Everything You Need To Build Your Digital Future"
+              description="We map custom software architectures, workflow integrations, and continuous growth channels to target your primary organizational goals."
+            />
+          </ScrollReveal3D>
+
+          {/* Services Visual Showcase Banner */}
+          <div className="my-8 rounded-3xl overflow-hidden border border-brand-navy/10 shadow-xl relative group">
+            <img
+              src={servicesOverviewImg}
+              alt="Digee Tech Full-Stack Services Suite"
+              referrerPolicy="no-referrer"
+              className="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-102"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/80 via-brand-navy/40 to-transparent flex items-center p-8">
+              <div className="max-w-md text-white space-y-2">
+                <span className="bg-brand-blue font-bold text-xs uppercase px-3 py-1 rounded-full text-white inline-block">
+                  Custom Engineering & AI
+                </span>
+                <h3 className="font-display text-2xl font-bold">100+ Production-Ready Capabilities</h3>
+                <p className="text-xs text-brand-gray-light leading-relaxed">
+                  From high-conversion web apps to autonomous AI workflows, explore our end-to-end digital services.
+                </p>
+              </div>
+            </div>
+          </div>
           <div id="categories-grid-container" className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {serviceCategories.map((cat, idx) => (
-              <div
-                id={`cat-card-detailed-${idx}`}
-                key={cat.title}
-                className="p-8 rounded-3xl border border-brand-navy/5 bg-white hover:border-brand-blue/20 hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row gap-6"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center shrink-0 text-brand-blue shadow-sm">
-                  {cat.icon}
-                </div>
-                <div className="flex flex-col justify-between gap-6">
-                  <div className="flex flex-col gap-3">
-                    <h3 className="font-display text-xl font-bold text-brand-navy">{cat.title}</h3>
-                    <p className="font-sans text-sm text-brand-gray leading-relaxed">{cat.desc}</p>
-                    
-                    <ul className="grid grid-cols-2 gap-x-4 gap-y-2 mt-2">
-                      {cat.list.map((item) => (
-                        <li key={item} className="flex items-center gap-1.5 text-xs text-brand-navy/80">
-                          <CheckCircle className="w-3.5 h-3.5 text-brand-blue shrink-0 stroke-[2.5]" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <ScrollReveal3D key={cat.title} direction="up" delay={0.15 * idx}>
+                <Card3D id={`cat-card-detailed-${idx}`} className="h-full">
+                  <div className="p-8 rounded-3xl border border-brand-navy/5 bg-white flex flex-col md:flex-row gap-6 h-full justify-between">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center shrink-0 text-brand-blue shadow-sm">
+                      {cat.icon}
+                    </div>
+                    <div className="flex flex-col justify-between gap-6 grow">
+                      <div className="flex flex-col gap-3">
+                        <h3 className="font-display text-xl font-bold text-brand-navy">{cat.title}</h3>
+                        <p className="font-sans text-sm text-brand-gray leading-relaxed">{cat.desc}</p>
+                        
+                        <ul className="grid grid-cols-2 gap-x-4 gap-y-2 mt-2">
+                          {cat.list.map((item) => (
+                            <li key={item} className="flex items-center gap-1.5 text-xs text-brand-navy/80">
+                              <CheckCircle className="w-3.5 h-3.5 text-brand-blue shrink-0 stroke-[2.5]" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                  <Link
-                    to={cat.link}
-                    className="inline-flex items-center gap-1 font-display text-xs font-bold text-brand-blue hover:text-[#0070a6] transition-colors"
-                  >
-                    Explore Services <ChevronRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
+                      <Link
+                        to={cat.link}
+                        className="inline-flex items-center gap-1 font-display text-xs font-bold text-brand-blue hover:text-[#0070a6] transition-colors"
+                      >
+                        Explore Services <ChevronRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </Card3D>
+              </ScrollReveal3D>
             ))}
           </div>
         </div>
@@ -280,95 +303,18 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. INTERACTIVE AI WORKFLOW SECTION */}
-      <section id="ai-workflow-section" className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div id="ai-wf-left" className="lg:col-span-6 flex flex-col gap-6">
-              <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
-                Cognitive Automations
-              </span>
-              <h2 className="font-display text-3xl md:text-5xl font-extrabold leading-tight text-brand-navy">
-                AI Built for Serious Enterprise Operations.
-              </h2>
-              <p className="font-sans text-base text-brand-gray leading-relaxed">
-                We design and integrate smart background scripts, Large Language Model logic gates, and semantic search retrieve structures that solve repetitive manual work sequences.
-              </p>
-              
-              <div className="flex flex-col gap-2 mt-4 border-l-2 border-brand-blue pl-4 py-1">
-                <span className="font-sans text-xs text-brand-blue uppercase tracking-wider font-bold">Interactive Reasoning Simulation</span>
-                <span className="font-display text-sm font-bold text-brand-navy/90">Click the workflow steps to simulate a cognitive customer response sequence.</span>
-              </div>
-            </div>
-
-            {/* Live Interactive Diagram Panel */}
-            <div id="ai-wf-right" className="lg:col-span-6">
-              <div className="bg-white border border-brand-navy/5 rounded-3xl p-6 relative flex flex-col gap-4 shadow-xl shadow-brand-navy/5">
-                <div className="flex items-center justify-between border-b border-brand-navy/5 pb-3">
-                  <span className="font-display text-[10px] text-brand-blue font-bold uppercase tracking-wider">AI AGENT REASONING LOOPS</span>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                    <span className="font-sans text-[10px] text-brand-gray">Cognitive Active</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-3 relative z-10">
-                  {aiWorkflow.map((step) => (
-                    <button
-                      key={step.id}
-                      onClick={() => setActiveWorkflowStep(step.id)}
-                      className={`w-full flex items-center justify-between p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
-                        activeWorkflowStep === step.id
-                          ? "bg-brand-blue/5 border-brand-blue/30 shadow-sm"
-                          : "bg-white border-brand-navy/5 hover:bg-brand-white/30 hover:border-brand-navy/10"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold ${
-                          activeWorkflowStep === step.id ? "bg-brand-blue text-white" : "bg-brand-navy/5 text-brand-navy/40"
-                        }`}>
-                          0{step.id}
-                        </span>
-                        <span className={`font-display text-xs font-bold ${
-                          activeWorkflowStep === step.id ? "text-brand-blue" : "text-brand-navy/70"
-                        }`}>
-                          {step.label}
-                        </span>
-                      </div>
-                      <ChevronRight className={`w-4 h-4 text-brand-navy/20 transition-transform ${activeWorkflowStep === step.id ? "translate-x-0.5 text-brand-blue" : ""}`} />
-                    </button>
-                  ))}
-                </div>
-
-                {/* Step details box */}
-                <div className="mt-2 p-4 rounded-2xl bg-brand-white/40 border border-brand-navy/5 shadow-inner">
-                  <h4 className="font-display text-xs font-bold text-brand-navy uppercase tracking-wider mb-1">
-                    Cognitive Action {activeWorkflowStep} Logic:
-                  </h4>
-                  <p className="font-sans text-xs text-brand-gray leading-relaxed">
-                    {aiWorkflow[activeWorkflowStep - 1].detail}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 6. WHY DIGEETECH SECTION (Digital Ecosystem & Principles) */}
+      {/* 6. WHY DIGEE TECH SECTION (Digital Ecosystem & Principles) */}
       <section id="why-digeetech-section" className="py-24 bg-brand-white/40 border-y border-brand-navy/5">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
             id="why-hdr"
             eyebrow="Our Engineering DNA"
-            title="Why Serious Businesses Choose Digeetech"
+            title="Why Serious Businesses Choose Digee Tech"
             description="We bridge the gap between pixel-perfect aesthetics and robust background database architectures to produce absolute scale."
             center
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyDigeetech.map((item, idx) => (
+            {whyDigeeTech.map((item, idx) => (
               <div
                 key={idx}
                 className="p-6 rounded-3xl border border-brand-navy/5 bg-white shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
@@ -605,11 +551,11 @@ export const Home: React.FC = () => {
             description="We build exclusively with secure, modern, and universally trusted open-source technology standards to protect database integrity."
             center
           />
-          <div id="tech-categories-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div id="tech-categories-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {techCategories.map((cat) => (
               <div
                 key={cat.title}
-                className="p-6 rounded-3xl border border-brand-navy/5 bg-white shadow-md"
+                className="p-6 rounded-3xl border border-brand-navy/5 bg-white shadow-md hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300"
               >
                 <h4 className="font-display text-xs font-bold text-brand-blue uppercase tracking-widest border-b border-brand-navy/5 pb-2.5 mb-4">
                   {cat.title}
@@ -640,7 +586,7 @@ export const Home: React.FC = () => {
             Have An Idea? Let's Build What's Next.
           </h2>
           <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed max-w-2xl">
-            Tell us what you are building. Digeetech solutions engineers will analyze your roadmap, plan database architectures, and draft proposals.
+            Tell us what you are building. Digee Tech solutions engineers will analyze your roadmap, plan database architectures, and draft proposals.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
             <Button id="final-cta-btn-start" variant="primary" size="lg" to="/start-a-project">

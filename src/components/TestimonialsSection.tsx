@@ -26,7 +26,7 @@ const SAMPLE_TESTIMONIALS: Testimonial[] = [
     id: 2,
     companyName: "Global Operations Corp (Sample Case)",
     projectType: "Tailored ERP & Automation",
-    feedback: "We replaced our complex background data-entry processes with custom automation scripts and an intuitive ERP interface designed by Digeetech. The team saved our staff over 30 hours of manual work weekly, ensuring complete data consistency across all databases.",
+    feedback: "We replaced our complex background data-entry processes with custom automation scripts and an intuitive ERP interface designed by Digee Tech. The team saved our staff over 30 hours of manual work weekly, ensuring complete data consistency across all databases.",
     author: "David Vance",
     role: "Director of Systems & Integration",
     rating: 5
@@ -35,7 +35,7 @@ const SAMPLE_TESTIMONIALS: Testimonial[] = [
     id: 3,
     companyName: "Apex Marketing Group (Sample Case)",
     projectType: "Corporate Platform & SEO",
-    feedback: "Digeetech built a lightning-fast, pixel-perfect web application that serves as the foundation of our web presence. Their attention to Core Web Vitals, speed index, and technical search optimization raised our organic performance within weeks. A high-end experience.",
+    feedback: "Digee Tech built a lightning-fast, pixel-perfect web application that serves as the foundation of our web presence. Their attention to Core Web Vitals, speed index, and technical search optimization raised our organic performance within weeks. A high-end experience.",
     author: "Elena Rostov",
     role: "VP of Digital Acquisition",
     rating: 5

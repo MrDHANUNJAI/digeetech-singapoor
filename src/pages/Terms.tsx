@@ -13,12 +13,12 @@ export const Terms: React.FC = () => {
       <p className="mb-4 text-brand-gray">Last Updated: August 31, 2026</p>
       
       <p className="mb-6 text-brand-gray">
-        Welcome to the official Digeetech corporate website. By navigating this digital site, accessing services data, or submitting scoping inquiry forms, you agree to comply with the general technical and system terms outlined below.
+        Welcome to the official Digee Tech corporate website. By navigating this digital site, accessing services data, or submitting scoping inquiry forms, you agree to comply with the general technical and system terms outlined below.
       </p>
 
       <h2 className="font-display text-xl font-bold text-brand-navy mt-8 mb-4">1. Use of Website Materials</h2>
       <p className="mb-4 text-brand-gray">
-        All typographical scales, grid layouts, brand visual logo marks, abstract illustrations, and data-driven service/project summaries are the intellectual property of Digeetech. Copying, republishing, or distributing these materials for commercial use without written authorization is strictly prohibited.
+        All typographical scales, grid layouts, brand visual logo marks, abstract illustrations, and data-driven service/project summaries are the intellectual property of Digee Tech. Copying, republishing, or distributing these materials for commercial use without written authorization is strictly prohibited.
       </p>
 
       <h2 className="font-display text-xl font-bold text-brand-navy mt-8 mb-4">2. Scoping Forms & Technical Blueprint Disclaimer</h2>

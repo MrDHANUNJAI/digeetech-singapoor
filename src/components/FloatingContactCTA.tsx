@@ -64,7 +64,7 @@ export const FloatingContactCTA: React.FC = () => {
                 </div>
                 <h5 className="font-display text-sm font-bold text-brand-navy">Message Received!</h5>
                 <p className="font-sans text-xs text-brand-gray leading-relaxed max-w-xs px-2">
-                  Thank you for reaching out. A Digeetech solutions engineer will analyze your request and follow up shortly.
+                  Thank you for reaching out. A Digee Tech solutions engineer will analyze your request and follow up shortly.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -156,7 +156,7 @@ export const FloatingContactCTA: React.FC = () => {
 
         {/* Hover Tooltip label */}
         <span className="absolute right-16 top-1/2 -translate-y-1/2 bg-brand-navy text-white text-[10px] font-display font-semibold tracking-wider uppercase px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md pointer-events-none border border-white/5">
-          Consult Digeetech
+          Consult Digee Tech
         </span>
       </motion.button>
 

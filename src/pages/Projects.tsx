@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { projectsData } from "../data";
 import { SectionHeader } from "../components/SectionHeader";
 import { ChevronRight, Filter } from "lucide-react";
+import projectsShowcaseImg from "../assets/images/projects_showcase.jpg";
+import aiDashboardImg from "../assets/images/ai_dashboard_1789130800720.jpg";
+import cloudArchImg from "../assets/images/cloud_architecture_1789130783930.jpg";
 
 export const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>("All");
@@ -22,16 +25,26 @@ export const Projects: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* HERO */}
-        <div id="projects-hero" className="max-w-3xl mb-12">
-          <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
-            Our Work
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight mt-2">
-            Recent Case Studies
-          </h1>
-          <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4">
-            Digeetech delivers tailored technology without unverified claims or fake client reviews. Review our real-world, data-driven system architectures and workflow automations below.
-          </p>
+        <div id="projects-hero" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
+          <div className="lg:col-span-7">
+            <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
+              Our Work
+            </span>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight mt-2">
+              Recent Case Studies
+            </h1>
+            <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4">
+              Digee Tech delivers tailored technology without unverified claims or fake client reviews. Review our real-world, data-driven system architectures and workflow automations below.
+            </p>
+          </div>
+          <div className="lg:col-span-5 rounded-2xl overflow-hidden shadow-xl border border-brand-navy/10 group">
+            <img
+              src={projectsShowcaseImg}
+              alt="Digee Tech Featured Case Study Showcase"
+              referrerPolicy="no-referrer"
+              className="w-full h-64 lg:h-72 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
         </div>
 
         {/* FILTERS BAR */}
@@ -64,20 +77,18 @@ export const Projects: React.FC = () => {
                 key={project.slug}
                 className="group flex flex-col bg-white rounded-2xl border border-brand-navy/5 overflow-hidden hover:border-brand-blue/30 hover:shadow-xl transition-all duration-300 shadow-md hover:-translate-y-1"
               >
-                {/* Mock Visual Drawing Block representing Project state */}
-                <div className="h-48 bg-brand-white/40 border-b border-brand-navy/5 p-6 flex flex-col justify-between relative overflow-hidden">
-                  <div className="absolute right-2 bottom-2 text-brand-navy/3 text-[90px] font-display font-extrabold select-none">
-                    {project.category}
-                  </div>
-                  <span className="text-[10px] font-bold tracking-widest text-brand-blue uppercase bg-white border border-brand-blue/15 rounded-full px-2.5 py-1 w-fit shadow-sm">
-                    {project.category}
-                  </span>
-                  
-                  {/* Decorative abstract screen rendering lines */}
-                  <div className="flex flex-col gap-2 opacity-30 mt-6">
-                    <div className="h-1 bg-brand-navy/10 rounded w-1/3" />
-                    <div className="h-1 bg-brand-navy/10 rounded w-2/3" />
-                    <div className="h-1 bg-brand-blue/30 rounded w-1/2" />
+                {/* Visual Image Block representing Project state */}
+                <div className="h-48 relative overflow-hidden group">
+                  <img
+                    src={project.slug.includes("ai") ? aiDashboardImg : project.slug.includes("erp") || project.slug.includes("saas") ? cloudArchImg : projectsShowcaseImg}
+                    alt={project.title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent p-4 flex items-end">
+                    <span className="text-[10px] font-bold tracking-widest text-white uppercase bg-brand-blue/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm">
+                      {project.category}
+                    </span>
                   </div>
                 </div>
 

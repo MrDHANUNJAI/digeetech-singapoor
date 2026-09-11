@@ -13,7 +13,7 @@ export const Privacy: React.FC = () => {
       <p className="mb-4 text-brand-gray">Last Updated: August 31, 2026</p>
       
       <p className="mb-6 text-brand-gray">
-        At Digeetech ("we", "our", or "us"), protecting your operational and organizational data privacy is a core technical principle. This Privacy Policy outlines the general categories of data we collect, how we coordinate and process that information, and how we protect your digital assets.
+        At Digee Tech ("we", "our", or "us"), protecting your operational and organizational data privacy is a core technical principle. This Privacy Policy outlines the general categories of data we collect, how we coordinate and process that information, and how we protect your digital assets.
       </p>
 
       <h2 className="font-display text-xl font-bold text-brand-navy mt-8 mb-4">1. Data Collection & Processing</h2>

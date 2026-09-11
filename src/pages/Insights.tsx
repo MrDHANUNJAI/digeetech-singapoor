@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { blogArticles } from "../data";
 import { SectionHeader } from "../components/SectionHeader";
 import { Calendar, Clock, ChevronRight, BookOpen } from "lucide-react";
+import aiAgentsImg from "../assets/images/ai_agents_tech.jpg";
+import cloudArchImg from "../assets/images/cloud_architecture_1789130783930.jpg";
+import techStackImg from "../assets/images/tech_stack.jpg";
 
 export const Insights: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -64,6 +67,20 @@ export const Insights: React.FC = () => {
                 key={art.slug}
                 className="group flex flex-col bg-white rounded-2xl border border-brand-navy/5 overflow-hidden hover:border-brand-blue/30 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1"
               >
+                <div className="h-44 relative overflow-hidden">
+                  <img
+                    src={art.category.toLowerCase() === "ai" ? aiAgentsImg : art.category.toLowerCase() === "saas" ? cloudArchImg : techStackImg}
+                    alt={art.title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[10px] font-bold text-white uppercase bg-brand-navy/80 backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm">
+                      {art.category}
+                    </span>
+                  </div>
+                </div>
+
                 <div className="p-6 flex flex-col justify-between grow gap-6">
                   <div className="flex flex-col gap-4">
                     

@@ -2,6 +2,9 @@ import React from "react";
 import { SectionHeader } from "../components/SectionHeader";
 import { Button } from "../components/Button";
 import { Search, Map, Paintbrush, Code, ShieldCheck, Rocket, HeartHandshake, TrendingUp } from "lucide-react";
+import teamMeetingImg from "../assets/images/team_meeting_1789130815215.jpg";
+import techStackImg from "../assets/images/tech_stack.jpg";
+import cloudArchImg from "../assets/images/cloud_architecture_1789130783930.jpg";
 
 export const Process: React.FC = () => {
   const steps = [
@@ -72,16 +75,45 @@ export const Process: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* HERO */}
-        <div id="process-hero" className="max-w-3xl mb-16">
-          <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
-            Our Methods
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight mt-2">
-            From Idea To Impact
-          </h1>
-          <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4">
-            A successful digital technology project requires deliberate engineering. We combine creative flexibility with a rigid, structured milestones delivery process to complete projects on time, on budget, and with zero wasted effort.
-          </p>
+        <div id="process-hero" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+          <div className="lg:col-span-6">
+            <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
+              Our Methods
+            </span>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight mt-2">
+              From Idea To Impact
+            </h1>
+            <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4">
+              A successful digital technology project requires deliberate engineering. We combine creative flexibility with a rigid, structured milestones delivery process to complete projects on time, on budget, and with zero wasted effort.
+            </p>
+          </div>
+
+          <div className="lg:col-span-6 grid grid-cols-3 gap-3">
+            <div className="rounded-xl overflow-hidden border border-brand-navy/10 shadow-md group h-48">
+              <img
+                src={teamMeetingImg}
+                alt="Discovery Workshop"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden border border-brand-navy/10 shadow-md group h-48">
+              <img
+                src={techStackImg}
+                alt="System Architecture"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden border border-brand-navy/10 shadow-md group h-48">
+              <img
+                src={cloudArchImg}
+                alt="Production Deployment"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+          </div>
         </div>
 
         {/* DETAILED PROCESS CARDS TIMELINE */}

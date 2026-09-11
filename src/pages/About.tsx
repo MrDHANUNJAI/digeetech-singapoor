@@ -2,6 +2,10 @@ import React from "react";
 import { Button } from "../components/Button";
 import { SectionHeader } from "../components/SectionHeader";
 import { ShieldCheck, Heart, Users, Target, Rocket, Eye, Compass, Cpu } from "lucide-react";
+import aboutCompanyImg from "../assets/images/about_company.jpg";
+import teamMeetingImg from "../assets/images/team_meeting_1789130815215.jpg";
+import cloudArchImg from "../assets/images/cloud_architecture_1789130783930.jpg";
+import techStackImg from "../assets/images/tech_stack.jpg";
 
 export const About: React.FC = () => {
   const capabilitiesList = [
@@ -25,41 +29,48 @@ export const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* HERO SECTION */}
-        <div id="about-hero" className="flex flex-col items-start gap-4 mb-16 max-w-3xl">
-          <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
-            Our Identity
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight">
-            Creating What's <span className="text-gradient-blue">Next...</span>
-          </h1>
-          <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-2">
-            Digeetech is a premium digital technology and digital solutions company. We specialize in building custom-crafted software, autonomous AI systems, optimized business structures, and conversion-ready growth campaigns to empower forward-thinking organizations.
-          </p>
+        <div id="about-hero" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+          <div className="lg:col-span-7 flex flex-col items-start gap-4">
+            <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
+              Our Identity
+            </span>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight">
+              Creating What's <span className="text-gradient-blue">Next...</span>
+            </h1>
+            <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-2">
+              Digee Tech is a premium digital technology and digital solutions company. We specialize in building custom-crafted software, autonomous AI systems, optimized business structures, and conversion-ready growth campaigns to empower forward-thinking organizations.
+            </p>
+          </div>
+          <div className="lg:col-span-5 rounded-2xl overflow-hidden shadow-xl border border-brand-navy/10 group">
+            <img
+              src={aboutCompanyImg}
+              alt="Digee Tech Singapore Office Team"
+              referrerPolicy="no-referrer"
+              className="w-full h-72 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
         </div>
 
         {/* WHO WE ARE & WHAT WE DO */}
-        <div id="about-intro-grid" className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t border-brand-navy/10 pt-12 mb-20">
+        <div id="about-intro-grid" className="grid grid-cols-1 lg:grid-cols-2 gap-12 border-t border-brand-navy/10 pt-12 mb-20 items-center">
           <div id="intro-who-we-are" className="flex flex-col gap-4">
             <h3 className="font-display text-xl font-bold text-brand-navy flex items-center gap-2">
-              <Users className="w-5 h-5 text-brand-blue" /> Who We Are
+              <Users className="w-5 h-5 text-brand-blue" /> Who We Are & Our Culture
             </h3>
             <p className="font-sans text-sm text-brand-gray leading-relaxed">
               We are an engineering-driven team of software developers, system architects, UI/UX designers, AI implementation experts, and digital growth strategists. Rather than forcing clients into rigid off-the-shelf templates, we craft deliberate, tailormade digital solutions.
             </p>
             <p className="font-sans text-sm text-brand-gray leading-relaxed mt-1">
-              At Digeetech, we believe that visual beauty and robust, type-safe clean code must go hand-in-hand. Every project we undertake is modeled from the ground up to achieve high scalability, optimal performance, and strict client security.
+              At Digee Tech, we believe that visual beauty and robust, type-safe clean code must go hand-in-hand. Every project we undertake is modeled from the ground up to achieve high scalability, optimal performance, and strict client security.
             </p>
           </div>
-          <div id="intro-what-we-do" className="flex flex-col gap-4">
-            <h3 className="font-display text-xl font-bold text-brand-navy flex items-center gap-2">
-              <Cpu className="w-5 h-5 text-brand-blue" /> What We Do
-            </h3>
-            <p className="font-sans text-sm text-brand-gray leading-relaxed">
-              Digeetech provides unified, end-to-end technological capabilities. We help businesses conceptualize SaaS MVPs, build mobile and corporate web presences, eliminate manual file processing via API automation scripts, design custom CRMs/ERPs, and establish online search visibility.
-            </p>
-            <p className="font-sans text-sm text-brand-gray leading-relaxed mt-1">
-              Our ultimate objective is simple: reduce operational friction and accelerate business growth. We turn complex technical and automation challenges into neat, high-performing corporate solutions.
-            </p>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-brand-navy/10 group">
+            <img
+              src={teamMeetingImg}
+              alt="Digee Tech Engineering Team Collaboration"
+              referrerPolicy="no-referrer"
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
           </div>
         </div>
 
@@ -115,8 +126,8 @@ export const About: React.FC = () => {
         </section>
 
         {/* CAPABILITIES LIST */}
-        <section id="our-capabilities" className="mb-20 bg-brand-white/30 p-8 md:p-12 rounded-3xl border border-brand-navy/5">
-          <div className="max-w-3xl">
+        <section id="our-capabilities" className="mb-20 bg-brand-white/30 p-8 md:p-12 rounded-3xl border border-brand-navy/5 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7">
             <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
               System Capabilities
             </span>
@@ -136,13 +147,42 @@ export const About: React.FC = () => {
               ))}
             </div>
           </div>
+          <div className="lg:col-span-5 rounded-2xl overflow-hidden border border-brand-navy/10 shadow-lg group">
+            <img
+              src={techStackImg}
+              alt="Digee Tech System Architecture & Technologies"
+              referrerPolicy="no-referrer"
+              className="w-full h-64 lg:h-72 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
         </section>
 
-        {/* WHY DIGEETECH & TECHNOLOGY PHILOSOPHY */}
+        {/* CLOUD INFRASTRUCTURE & SECURITY SHOWCASE */}
+        <div className="mb-20 rounded-3xl overflow-hidden border border-brand-navy/10 shadow-xl relative group">
+          <img
+            src={cloudArchImg}
+            alt="Enterprise Cloud Infrastructure & Security"
+            referrerPolicy="no-referrer"
+            className="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-102"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent flex items-end p-8">
+            <div className="text-white space-y-2">
+              <span className="bg-emerald-500 text-white font-bold text-xs uppercase px-3 py-1 rounded-full inline-block">
+                Singapore Data Center Compliance
+              </span>
+              <h3 className="font-display text-2xl font-bold">Cloud Infrastructure & High-Availability Servers</h3>
+              <p className="text-xs text-brand-gray-light max-w-xl">
+                Deploying containerized Cloud Run instances with automated SSL termination, type-safe Postgres databases, and 99.9% uptime SLAs.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* WHY DIGEE TECH & TECHNOLOGY PHILOSOPHY */}
         <div id="why-philosophy-grid" className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           <div id="why-digeetech" className="flex flex-col gap-4">
             <h3 className="font-display text-xl font-bold text-brand-navy flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-brand-blue" /> Why Digeetech
+              <ShieldCheck className="w-5 h-5 text-brand-blue" /> Why Digee Tech
             </h3>
             <p className="font-sans text-sm text-brand-gray leading-relaxed">
               We stand apart because we do not treat digital development as a simple commodity task. We serve as a strategic partner. We analyze your workflows to identify where automation will save human capital, and where customized dashboards will drive growth.

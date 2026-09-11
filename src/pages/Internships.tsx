@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Button } from "../components/Button";
 import { SectionHeader } from "../components/SectionHeader";
 import { Award, BookOpen, Clock, CheckCircle2, ChevronRight, GraduationCap } from "lucide-react";
+import internshipLearningImg from "../assets/images/internship_learning.jpg";
+import teamMeetingImg from "../assets/images/team_meeting_1789130815215.jpg";
+import techStackImg from "../assets/images/tech_stack.jpg";
 
 export const Internships: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -45,16 +48,26 @@ export const Internships: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* HERO */}
-        <div id="internships-hero" className="max-w-3xl mb-16">
-          <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
-            Careers & Training
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight mt-2">
-            Technical Internships
-          </h1>
-          <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4">
-            Digeetech hosts structured practical training and internship programs for tech-forward students and engineers. Learn following strict type-safe guidelines and collaborate on real blueprints.
-          </p>
+        <div id="internships-hero" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+          <div className="lg:col-span-7">
+            <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
+              Careers & Training
+            </span>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight mt-2">
+              Technical Internships
+            </h1>
+            <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4">
+              Digee Tech hosts structured practical training and internship programs for tech-forward students and engineers. Learn following strict type-safe guidelines and collaborate on real blueprints.
+            </p>
+          </div>
+          <div className="lg:col-span-5 rounded-2xl overflow-hidden shadow-xl border border-brand-navy/10 group">
+            <img
+              src={internshipLearningImg}
+              alt="Digee Tech Engineering Mentorship and Practical Training"
+              referrerPolicy="no-referrer"
+              className="w-full h-64 lg:h-72 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
         </div>
 
         {/* SPLIT GRID */}
@@ -76,6 +89,15 @@ export const Internships: React.FC = () => {
                   <span className="font-sans text-xs text-brand-blue flex items-center gap-1.5 mt-1">
                     <Clock className="w-3.5 h-3.5" /> Duration: {prog.duration}
                   </span>
+                </div>
+
+                <div className="my-1 rounded-xl overflow-hidden border border-brand-navy/10 h-36">
+                  <img
+                    src={idx === 0 ? techStackImg : teamMeetingImg}
+                    alt={prog.title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <div className="flex flex-col gap-3">

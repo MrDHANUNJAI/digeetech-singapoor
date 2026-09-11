@@ -4,6 +4,9 @@ import { solutionsData } from "../data";
 import { Button } from "../components/Button";
 import { SectionHeader } from "../components/SectionHeader";
 import { Check, ShieldCheck, Zap, Laptop, Cpu, Workflow, ChevronRight } from "lucide-react";
+import aiAgentsImg from "../assets/images/ai_agents_tech.jpg";
+import cloudArchImg from "../assets/images/cloud_architecture_1789130783930.jpg";
+import projectsShowcaseImg from "../assets/images/projects_showcase.jpg";
 
 export const Solutions: React.FC = () => {
   const { hash } = useLocation();
@@ -33,16 +36,26 @@ export const Solutions: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* HERO */}
-        <div id="solutions-hero" className="max-w-3xl mb-16">
-          <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
-            Our Strategy
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight mt-2">
-            Targeted Digital Solutions
-          </h1>
-          <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4">
-            We organize complex software engineering, cognitive AI reasoning, and high-performance marketing into clear, life-cycle-based packages designed to map directly to your organizational goals.
-          </p>
+        <div id="solutions-hero" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+          <div className="lg:col-span-7">
+            <span className="font-display text-xs font-bold uppercase tracking-widest text-brand-blue">
+              Our Strategy
+            </span>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-navy leading-tight mt-2">
+              Targeted Digital Solutions
+            </h1>
+            <p className="font-sans text-base md:text-lg text-brand-gray leading-relaxed mt-4">
+              We organize complex software engineering, cognitive AI reasoning, and high-performance marketing into clear, life-cycle-based packages designed to map directly to your organizational goals.
+            </p>
+          </div>
+          <div className="lg:col-span-5 rounded-2xl overflow-hidden shadow-xl border border-brand-navy/10 group">
+            <img
+              src={aiAgentsImg}
+              alt="Digee Tech AI Solutions & Systems Architecture"
+              referrerPolicy="no-referrer"
+              className="w-full h-64 lg:h-72 object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
         </div>
 
         {/* SOLUTIONS GRID */}
@@ -97,6 +110,16 @@ export const Solutions: React.FC = () => {
                         </li>
                       ))}
                     </ul>
+                  </div>
+
+                  {/* Visual Solution Showcase Image */}
+                  <div className="rounded-xl overflow-hidden border border-brand-navy/10 shadow-xs h-40">
+                    <img
+                      src={index % 2 === 0 ? cloudArchImg : projectsShowcaseImg}
+                      alt={pkg.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
 
                   {/* Services Included */}
