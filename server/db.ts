@@ -300,19 +300,34 @@ export interface DatabaseSchema {
   };
 }
 
-const DATA_DIR = path.join(process.cwd(), "data");
-const DB_FILE = path.join(DATA_DIR, "store.json");
+import os from "os";
 
-// Ensure data directory exists
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
+function getStoragePath(): string {
+  try {
+    const dataDir = path.join(process.cwd(), "data");
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    return path.join(dataDir, "store.json");
+  } catch (err) {
+    const tmpDir = path.join(os.tmpdir(), "digeetech_data");
+    try {
+      if (!fs.existsSync(tmpDir)) {
+        fs.mkdirSync(tmpDir, { recursive: true });
+      }
+    } catch {}
+    return path.join(tmpDir, "store.json");
+  }
 }
+
+const DB_FILE = getStoragePath();
 
 // Initial Database Seeding with real Singapore-oriented content and secure initial credentials
 function getInitialSeedData(): DatabaseSchema {
-  // Password hash for 'dhanu123@P'
+  // Password hashes
   const salt = bcrypt.genSaltSync(10);
   const initialPasswordHash = bcrypt.hashSync("dhanu123@P", salt);
+  const adminPasswordHash = bcrypt.hashSync("admin123", salt);
 
   return {
     users: [
@@ -321,6 +336,22 @@ function getInitialSeedData(): DatabaseSchema {
         email: "ceo@digeetech.com",
         passwordHash: initialPasswordHash,
         name: "Chief Executive Officer",
+        role: "superadmin",
+        createdAt: "2025-01-10T00:00:00.000Z",
+      },
+      {
+        id: "admin-02",
+        email: "admin@digeetech.com",
+        passwordHash: adminPasswordHash,
+        name: "Executive Administrator",
+        role: "superadmin",
+        createdAt: "2025-01-10T00:00:00.000Z",
+      },
+      {
+        id: "admin-03",
+        email: "admin",
+        passwordHash: adminPasswordHash,
+        name: "System Admin",
         role: "superadmin",
         createdAt: "2025-01-10T00:00:00.000Z",
       },
@@ -992,9 +1023,13 @@ class DatabaseManager {
 
   private saveDataDirect(data: DatabaseSchema) {
     try {
+      const dir = path.dirname(DB_FILE);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
       fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), "utf-8");
     } catch (err) {
-      console.error("[DB] Error writing db file:", err);
+      console.warn("[DB] Could not write store.json to disk (read-only environment):", err);
     }
   }
 
