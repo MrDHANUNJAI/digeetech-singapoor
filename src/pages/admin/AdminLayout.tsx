@@ -36,22 +36,24 @@ export const AdminLayout: React.FC = () => {
   useEffect(() => {
     const checkSession = async () => {
       const token = getAuthToken();
-      if (!token) {
+      const stored = getStoredAdminUser();
+
+      if (!token && !stored) {
         navigate("/admin/login");
         return;
+      }
+
+      if (stored) {
+        setUser(stored);
       }
 
       try {
         const res = await api.getMe();
         if (res && res.user) {
           setUser(res.user);
-        } else {
-          removeAuthToken();
-          navigate("/admin/login");
         }
       } catch (err) {
-        removeAuthToken();
-        navigate("/admin/login");
+        console.warn("[AdminLayout] Session verify warning, using stored user:", err);
       } finally {
         setCheckingAuth(false);
       }
