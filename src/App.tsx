@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Chatbot } from "./components/Chatbot";
+import { logger } from "./lib/logger";
 
 // Public Page Imports
 import { Home } from "./pages/Home";
@@ -48,13 +49,23 @@ import { AdminKnowledge } from "./pages/admin/AdminKnowledge";
 import { AdminSettings } from "./pages/admin/AdminSettings";
 import { AdminAuditLogs } from "./pages/admin/AdminAuditLogs";
 
-// ScrollToTop component reset on route changes
-const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
+// ScrollToTop component & Hash route normalizer
+const ScrollToTopAndRouteTracer: React.FC = () => {
+  const { pathname, search, hash } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    // Check if user visited via a legacy hash URL (e.g. domain.com/#/admin/login)
+    if (hash && hash.startsWith("#/")) {
+      const cleanPath = hash.substring(1); // remove '#'
+      logger.logHashRouterIssue(hash, cleanPath);
+      navigate(cleanPath, { replace: true });
+      return;
+    }
+
     window.scrollTo(0, 0);
-  }, [pathname]);
+    logger.logRouteChange(document.referrer, pathname + search, false);
+  }, [pathname, search, hash, navigate]);
 
   return null;
 };
@@ -168,7 +179,7 @@ const MainAppLayout: React.FC = () => {
 export default function App() {
   return (
     <Router>
-      <ScrollToTop />
+      <ScrollToTopAndRouteTracer />
       <MainAppLayout />
     </Router>
   );

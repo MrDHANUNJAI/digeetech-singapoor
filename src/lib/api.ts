@@ -1,5 +1,7 @@
 // API Client for Digee Tech Singapore
 
+import { logger } from "./logger";
+
 const API_BASE = "/api";
 
 export interface ApiResponse<T = any> {
@@ -46,18 +48,27 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
     headers["Authorization"] = `Bearer ${token}`;
   }
 
-  const response = await fetch(`${API_BASE}${endpoint}`, {
-    ...options,
-    headers,
-  });
+  const targetUrl = `${API_BASE}${endpoint}`;
+  try {
+    const response = await fetch(targetUrl, {
+      ...options,
+      headers,
+    });
 
-  const data = await response.json().catch(() => ({}));
+    const data = await response.json().catch(() => ({}));
 
-  if (!response.ok) {
-    throw new Error(data.error || `HTTP error ${response.status}`);
+    if (!response.ok) {
+      logger.logApiError(response.status, targetUrl, response.statusText, data);
+      throw new Error(data.error || `HTTP error ${response.status}`);
+    }
+
+    return data;
+  } catch (err: any) {
+    if (err.message && !err.message.startsWith("HTTP error")) {
+      logger.log("NETWORK_ERROR", "error", targetUrl, `Network or server failure: ${err.message}`, { error: err.message });
+    }
+    throw err;
   }
-
-  return data;
 }
 
 function getFallbackChatbotAnswer(query: string) {
