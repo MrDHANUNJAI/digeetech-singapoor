@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
-import { Github, Twitter, Linkedin, ArrowRight, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -77,19 +77,6 @@ export const Footer: React.FC = () => {
                 <MapPin className="w-3.5 h-3.5 text-brand-blue" />
                 <span>Singapore & Global Operations</span>
               </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex items-center gap-4 text-brand-navy/50 pt-2">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors" aria-label="LinkedIn">
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors" aria-label="Twitter">
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors" aria-label="GitHub">
-                <Github className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
