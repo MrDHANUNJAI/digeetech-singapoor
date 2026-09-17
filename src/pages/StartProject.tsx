@@ -212,7 +212,7 @@ export const StartProject: React.FC = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    placeholder="E.g., +65 8123 4567"
+                    placeholder="Contact number (optional)"
                     className="w-full bg-white border border-brand-navy/10 rounded-lg px-4 py-3 text-sm text-brand-navy placeholder-brand-gray/30 focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
                   />
                 </div>

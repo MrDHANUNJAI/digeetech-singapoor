@@ -4,6 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digee Tech | Singapore Technology, AI & Digital Solutions</title>
+    <script>
+      // Early interceptor for external client tracer rejections
+      window.addEventListener('unhandledrejection', function(event) {
+        if (!event.reason || (typeof event.reason === 'object' && Object.keys(event.reason).length === 0) || String(event.reason).includes('Vercel Client Tracer')) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+          return true;
+        }
+      }, true);
+      window.addEventListener('error', function(event) {
+        if (event.message && (event.message.includes('Vercel Client Tracer') || event.message.includes('Script error'))) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+          return true;
+        }
+      }, true);
+    </script>
     <meta name="description" content="Digee Tech delivers affordable software development, AI agents, business automation, custom web & mobile apps, and digital solutions for Singapore businesses, startups and SMEs." />
     <meta property="og:title" content="Digee Tech | Singapore Technology, AI & Digital Solutions" />
     <meta property="og:description" content="Digee Tech delivers affordable software development, AI agents, business automation, custom web & mobile apps, and digital solutions for Singapore businesses, startups and SMEs." />

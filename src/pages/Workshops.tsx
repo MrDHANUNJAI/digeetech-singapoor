@@ -29,8 +29,8 @@ export const Workshops: React.FC = () => {
   const upcomingWorkshops = [
     {
       title: "Building Corporate Websites with Custom AI Agents",
-      date: "September 24, 2026",
-      time: "2:00 PM - 5:00 PM IST",
+      date: "Upcoming Technical Session",
+      time: "Interactive Masterclass Session",
       location: "Live Interactive Webinar (Google Meet)",
       desc: "Learn to design custom semantic prompts, bind database APIs, configure tool usage boundaries, and deploy cognitive agents that automate corporate customer-support lines.",
       price: "Complimentary for Partners"
@@ -211,7 +211,7 @@ export const Workshops: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="+65 8123 4567"
+                      placeholder="Contact number (optional)"
                       className="w-full bg-white border border-brand-navy/10 rounded-lg px-4 py-3 text-sm text-brand-navy placeholder-brand-gray/30 focus:border-brand-blue focus:outline-none"
                     />
                   </div>

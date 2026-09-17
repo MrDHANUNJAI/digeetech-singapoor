@@ -205,7 +205,7 @@ export const Careers: React.FC = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+65 8123 4567"
+                    placeholder="Contact number (optional)"
                     className="w-full px-4 py-3 rounded-xl border border-brand-navy/15 bg-[#fafafa] focus:outline-none focus:border-brand-blue transition-colors text-sm font-sans text-brand-navy"
                   />
                 </div>

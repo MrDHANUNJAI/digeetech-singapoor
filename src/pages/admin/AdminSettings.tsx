@@ -24,7 +24,7 @@ export const AdminSettings: React.FC = () => {
     tagline: "Singapore's Premier Digital Engineering & Business Solutions Partner",
     uenNumber: "202419803M",
     email: "contact@digeetech.com",
-    phone: "+65 6980 3411",
+    phone: "",
     address: "Marina Bay Financial Centre, Tower 1, Singapore 018981",
     metaTitle: "DIGEE TECH — Digital Transformation, AI & Software Engineering (Singapore)",
     metaDescription: "Enterprise-grade digital technology partner in Singapore. 100+ services including custom web & mobile apps, CRM, ERP, AI agents, cloud architectures and cybersecurity.",

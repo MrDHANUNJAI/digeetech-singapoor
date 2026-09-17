@@ -146,8 +146,6 @@ For custom project scopes, we provide fast, formal milestone quotes. Click below
       answer: `Hi! Here are Digee Tech's official contact details:
 
 • Email: contact@digeetech.com / sales@digeetech.com
-• Phone: +65 6789 0123 (Mon - Fri: 9am - 6pm SGT)
-• WhatsApp: +65 8123 4567
 • HQ Address: Level 28, Marina Bay Financial Centre Tower 2, 10 Marina Blvd, Singapore 018983`,
       sources: [{ title: "Company Profile & Contact", category: "Company Profile" }],
       showWhatsAppButton: true,

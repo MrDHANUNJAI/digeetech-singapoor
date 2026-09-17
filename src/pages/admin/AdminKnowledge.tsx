@@ -43,7 +43,7 @@ export const AdminKnowledge: React.FC = () => {
     companyName: "Digee Tech",
     botName: "Digee Tech AI Assistant",
     welcomeGreeting: "Welcome to Digee Tech, how can I help you today?",
-    whatsappNumber: "+65 8123 4567",
+    whatsappNumber: "",
     whatsappMessage: "Hello Digee Tech team, I would like to inquire about your software and AI solutions.",
     fallbackEmail: "contact@digeetech.com",
     enabled: true,

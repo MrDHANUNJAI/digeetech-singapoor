@@ -147,16 +147,16 @@ export const Contact: React.FC = () => {
                 </div>
               </div>
 
-              {/* Phone Card */}
+              {/* Operations Card */}
               <div className="p-5 rounded-2xl border border-brand-navy/5 bg-white shadow-md flex gap-4 items-start hover:shadow-lg transition-shadow">
                 <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue shrink-0">
-                  <PhoneIcon className="w-5 h-5" />
+                  <Clock className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <span className="font-display text-[10px] font-bold text-brand-blue uppercase tracking-wider">Singapore Support</span>
-                  <span className="font-sans text-sm text-brand-navy font-semibold">+65 8123 4567</span>
+                  <span className="font-display text-[10px] font-bold text-brand-blue uppercase tracking-wider">Operations</span>
+                  <span className="font-sans text-sm text-brand-navy font-semibold">Singapore & Global Client Support</span>
                   <span className="font-sans text-[11px] text-brand-gray flex items-center gap-1 mt-0.5">
-                    <Clock className="w-3 h-3 text-brand-blue" /> Mon - Fri, 9:00 AM - 6:00 PM (SGT)
+                    Singapore HQ Operations & Digital Support
                   </span>
                 </div>
               </div>
@@ -280,7 +280,7 @@ export const Contact: React.FC = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        placeholder="+65 8123 4567"
+                        placeholder="Optional contact number"
                         className="w-full bg-brand-white/40 border border-brand-navy/10 rounded-xl px-4 py-3 text-sm text-brand-navy placeholder-brand-gray/40 focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
                       />
                     </div>

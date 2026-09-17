@@ -43,7 +43,7 @@ export const Chatbot: React.FC = () => {
   const [isVoiceEnabled, setIsVoiceEnabled] = useState<boolean>(false);
   const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
   const [unreadBadge, setUnreadBadge] = useState<boolean>(false);
-  const [whatsappNumber, setWhatsappNumber] = useState<string>("+65 8123 4567");
+  const [whatsappNumber, setWhatsappNumber] = useState<string>("");
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);

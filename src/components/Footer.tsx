@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
-import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MapPin } from "lucide-react";
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -68,10 +68,6 @@ export const Footer: React.FC = () => {
                 <a href="mailto:contact@digeetech.com" className="hover:text-brand-blue transition-colors">
                   contact@digeetech.com
                 </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-brand-blue" />
-                <span>+65 8123 4567 (Mon - Fri, 9am - 6pm SGT)</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-brand-blue" />

@@ -251,7 +251,7 @@ export const Navbar: React.FC = () => {
             <span className="text-white/90">🇸🇬 Digital Technology & Business Solutions Partner • Fixed SGD Quotes • 100% IP Ownership</span>
           </span>
           <div className="flex items-center gap-4 text-white/80 shrink-0">
-            <span className="flex items-center gap-1"><PhoneCall className="w-3 h-3 text-brand-blue" /> +65 6980 3411</span>
+            <span>Singapore & Global Operations</span>
             <Link to="/verify-certificate" className="text-brand-blue-light hover:underline flex items-center gap-1">
               <Award className="w-3 h-3" /> Verify Certificate
             </Link>

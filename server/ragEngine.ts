@@ -275,7 +275,7 @@ export async function answerWithRAG(
 ): Promise<RagResponse> {
   const settings = db.get().chatbotSettings;
   const siteSettings = db.get().settings;
-  const whatsappNum = settings.whatsappNumber || siteSettings.whatsapp || "+65 8123 4567";
+  const whatsappNum = settings.whatsappNumber || siteSettings.whatsapp || "";
   const formattedNum = whatsappNum.replace(/[^0-9]/g, "");
   const waUrl = `https://wa.me/${formattedNum}?text=${encodeURIComponent(settings.whatsappMessage || "Hello Digee Tech team, I have a question from your website.")}`;
 
