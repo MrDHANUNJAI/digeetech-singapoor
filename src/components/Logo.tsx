@@ -24,19 +24,19 @@ export const Logo: React.FC<LogoProps> = ({
   // Color configuration based on variant
   const isLightText = variant === "light" || variant === "white" || variant === "dark";
 
-  // Size mapping for the logo image
+  // Size mapping for the logo image (increased sizes)
   const logoHeights = {
-    sm: "h-8",
-    md: "h-10 sm:h-11",
-    lg: "h-14 sm:h-16",
-    xl: "h-20 sm:h-24"
+    sm: "h-10 sm:h-11",
+    md: "h-12 sm:h-14",
+    lg: "h-16 sm:h-18",
+    xl: "h-22 sm:h-28"
   };
 
   return (
     <Link
       id={id}
       to="/"
-      className={`inline-flex items-center gap-2.5 group transition-all duration-300 ${
+      className={`inline-flex items-center gap-3 group transition-all duration-300 ${
         stacked ? "flex-col text-center" : ""
       } ${className}`}
     >
@@ -50,11 +50,17 @@ export const Logo: React.FC<LogoProps> = ({
       </div>
 
       {!iconOnly && (
-        <div className={`flex flex-col ${stacked ? "items-center" : "items-start"}`}>
-          {/* Fallback styling or subtle brand tagline if requested */}
+        <div className={`flex flex-col justify-center ${stacked ? "items-center" : "items-start"}`}>
+          <span
+            className={`font-display font-extrabold text-lg sm:text-xl md:text-2xl tracking-tight leading-none ${
+              isLightText ? "text-white" : "text-brand-navy"
+            }`}
+          >
+            Digee Tech
+          </span>
           {showTagline && (
             <span
-              className={`font-serif italic text-[10px] sm:text-xs font-semibold tracking-wide ${
+              className={`font-serif italic text-[10px] sm:text-xs font-semibold tracking-wide mt-0.5 ${
                 isLightText ? "text-slate-300" : "text-brand-blue"
               }`}
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}

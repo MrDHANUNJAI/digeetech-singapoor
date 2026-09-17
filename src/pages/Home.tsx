@@ -5,7 +5,7 @@ import { SectionHeader } from "../components/SectionHeader";
 import { servicesData, projectsData } from "../data";
 import { 
   Laptop, Phone, Cpu, Settings, Briefcase, BarChart, FileCode, CheckCircle, 
-  ArrowRight, Zap, Database, Network, ChevronRight, MessageSquare, Award, ShieldCheck
+  ArrowRight, Zap, Database, Network, ChevronRight, MessageSquare, Award, ShieldCheck, Quote
 } from "lucide-react";
 import { motion } from "motion/react";
 import { TestimonialsSection } from "../components/TestimonialsSection";
@@ -128,12 +128,40 @@ export const Home: React.FC = () => {
             <span className="w-1.5 h-1.5 bg-brand-blue rounded-full animate-ping" />
             Engineering Intelligent Digital Futures
           </div>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-brand-navy">
+
+          {/* Company Name with Radiant Gradient Glow */}
+          <div className="relative group my-1">
+            <div className="absolute -inset-2 bg-gradient-to-r from-brand-blue via-indigo-500 to-cyan-400 rounded-3xl blur-2xl opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-300 animate-pulse" />
+            <h1 className="relative font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight">
+              <span className="bg-gradient-to-r from-brand-blue via-indigo-600 to-cyan-500 bg-clip-text text-transparent drop-shadow-md">
+                Digee Tech
+              </span>
+            </h1>
+          </div>
+
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-brand-navy">
             Creating What's <span className="text-gradient-blue">Next...</span>
-          </h1>
+          </h2>
+
           <p className="font-sans text-lg md:text-xl text-brand-gray leading-relaxed max-w-2xl mx-auto">
             We build high-performance custom software, secure internal business tools, intelligent AI agents, and technical acquisition funnels to propel enterprises forward.
           </p>
+
+          {/* Inspired Quote Division */}
+          <div className="w-full max-w-2xl mx-auto my-3 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-brand-navy/5 via-brand-blue/5 to-cyan-500/10 border border-brand-blue/20 shadow-xl relative overflow-hidden backdrop-blur-md text-center">
+            <div className="absolute top-2 right-4 opacity-10 text-brand-blue pointer-events-none">
+              <Quote className="w-16 h-16" />
+            </div>
+            <p className="font-serif italic text-base sm:text-lg md:text-xl text-brand-navy font-semibold leading-relaxed relative z-10">
+              "Technology is not just about building tools—it is about empowering visionaries to turn extraordinary ideas into high-impact, intelligent digital realities."
+            </p>
+            <div className="mt-4 flex items-center justify-center gap-2 text-[11px] font-mono font-bold text-brand-blue uppercase tracking-wider">
+              <span className="w-6 h-0.5 bg-brand-blue/30 rounded-full" />
+              <span>Digee Tech Engineering Philosophy</span>
+              <span className="w-6 h-0.5 bg-brand-blue/30 rounded-full" />
+            </div>
+          </div>
+
           <div className="font-display text-xs text-brand-blue font-bold tracking-wider uppercase border-t border-brand-navy/10 pt-4 w-full max-w-xl mx-auto">
             Websites • Apps • AI Agents • SaaS • CRM • ERP • Automations • SEO
           </div>
